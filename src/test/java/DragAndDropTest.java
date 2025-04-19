@@ -2,7 +2,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Configuration.browserSize;
 import static com.codeborne.selenide.Selenide.*;
@@ -19,7 +19,7 @@ public class DragAndDropTest {
         open(baseUrl);
         SelenideElement columnsBox = $("#columns");
         actions().dragAndDrop($("#column-a"), $("#column-b")).perform();
-        columnsBox.find(":first-child").shouldHave(attribute("id", "column-a"));
-        columnsBox.lastChild().shouldHave(attribute("id", "column-b"));
+        columnsBox.find(":first-child").shouldHave(text("B"));
+        columnsBox.lastChild().shouldHave(text("A"));
     }
 }
