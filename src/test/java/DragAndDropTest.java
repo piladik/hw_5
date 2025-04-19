@@ -17,9 +17,16 @@ public class DragAndDropTest {
     @Test
     void name() {
         open(baseUrl);
-        SelenideElement columnsBox = $("#columns");
+
+        SelenideElement columnA = $("#column-a");
+        SelenideElement columnB = $("#column-b");
+
+        columnA.shouldHave(text("A"));
+        columnB.shouldHave(text("B"));
+
         actions().dragAndDrop($("#column-a"), $("#column-b")).perform();
-        columnsBox.find(":first-child").shouldHave(text("B"));
-        columnsBox.lastChild().shouldHave(text("A"));
+
+        columnA.shouldHave(text("B"));
+        columnB.shouldHave(text("A"));
     }
 }
