@@ -15,7 +15,7 @@ public class DragAndDropTest {
     }
 
     @Test
-    void name() {
+    void checkSuccessfulDragAndDropTest() {
         open(baseUrl);
 
         SelenideElement columnA = $("#column-a");
